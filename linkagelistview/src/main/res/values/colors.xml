@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_linkage_list_view_background_left">#F6F6F6</color>
+    <color name="color_linkage_list_view_background_right">#ffffff</color>
+    <color name="color_linkage_list_view_choice_background">#f33030</color>
+    <color name="color_linkage_list_view_text_color_no_choice">#ff000000</color>
+    <color name="color_linkage_list_view_text_color_choice_focus">#ffffff</color>
+    <color name="color_linkage_list_view_text_color_choice_no_focus">#f33030</color>
+</resources>

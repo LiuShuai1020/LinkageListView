@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="color_linkage_list_view_background_left">#FFFFFF</color>
+    <color name="color_linkage_list_view_background_right">#FFFFFF</color>
+    <color name="color_linkage_list_view_choice_background">#FF4500</color>
+    <color name="color_linkage_list_view_text_color_no_choice">#787878</color>
+    <color name="color_linkage_list_view_text_color_choice_focus">#FFFFFF</color>
+    <color name="color_linkage_list_view_text_color_choice_no_focus">#FF4500</color>
+
+    <color name="test_color_linkage_list_view_background_left">#000000</color>
+    <color name="test_color_linkage_list_view_background_right">#000000</color>
+    <color name="test_color_linkage_list_view_choice_background">#ffffff</color>
+
+    <color name="test_color_linkage_list_view_text_color_no_choice">#ffffff</color>
+    <color name="test_color_linkage_list_view_text_color_choice_focus">#000000</color>
+    <color name="test_color_linkage_list_view_text_color_choice_no_focus">#008577</color>
+</resources>
