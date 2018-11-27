@@ -2,7 +2,6 @@ package com.liushiyu.linkagelistview.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.*;
 
 import com.liushiyu.linkagelistview.adapter.LinkageListViewBaseAdapter;
@@ -57,10 +56,6 @@ public class LinkageRightListView extends LinkageBaseListView {
         super.setDataList(baseAdapter, dataList);
     }
 
-    private void log(String s) {
-        Log.e("LinkageRightListView", s);
-    }
-
     private void initScrollListener() {
         setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
@@ -69,17 +64,12 @@ public class LinkageRightListView extends LinkageBaseListView {
 
             @Override
             public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                log("firstVisibleItem = " + firstVisibleItem);
-                log("visibleItemCount = " + visibleItemCount);
-                log("totalItemCount = " + totalItemCount);
-                log("======================");
                 if (isNeedRefresh) {
                     if (index != firstVisibleItem) {
                         index = firstVisibleItem;
                         if (dataList.size() <= index) {
                             return;
                         }
-                        log("onScrollStateChanged onScroll index = " + index);
                         LinkageListViewObservable.getInstance().scrollToIndex(dataList.get(index).getRelationship());
                     }
                 }
@@ -88,13 +78,11 @@ public class LinkageRightListView extends LinkageBaseListView {
     }
 
     public void setOnSmoothScrollToPositionFromTop(int index) {
-        log("setOnSmoothScrollToPositionFromTop index = " + index);
         isNeedRefresh = false;
         setSelection(index);
         if (scrollTimeCount == null) {
             scrollTimeCount = new LinkageScrollTimeCount(200);
             scrollTimeCount.setOnTimeCountListener(() -> {
-                log("setOnSmoothScrollToPositionFromTop finish");
                 isNeedRefresh = true;
                 scrollTimeCount = null;
             });
