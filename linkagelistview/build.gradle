@@ -11,6 +11,12 @@ android {
         minSdkVersion 15
     }
     buildTypes {
+        debug {
+
+        }
+        beta {
+            matchingFallbacks = ['release', 'debug']
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
