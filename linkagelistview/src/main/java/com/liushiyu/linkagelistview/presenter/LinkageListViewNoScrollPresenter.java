@@ -52,6 +52,7 @@ public class LinkageListViewNoScrollPresenter extends LinkageListViewBasePresent
 
         leftListView.setLinkageListViewListener(this::onLeftItemClick);
         rightListView.setLinkageListViewListener(this::onRightItemClick);
+        rightListView.stopScrollListener();
     }
 
     @Override

@@ -26,8 +26,6 @@ public class MainActivity extends Activity {
     @BindView(R.id.mLinkageListView)
     LinkageListView mLinkageListView;
 
-    private List<LinkageModel> linkageRightModelList = new ArrayList<>();
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +39,10 @@ public class MainActivity extends Activity {
         mLinkageListView.setLinkageScroll(false);
 
         // 使用默认适配器
-//        mLinkageListView.setLinkageData(addLinkageListViewTestData());
+        mLinkageListView.setLinkageData(addLinkageListViewTestData());
 
         // 扩展自定义风格：设置联动数据
-        mLinkageListView.setLinkageData(new TestLeftAdapter(this), new TestRightAdapter(this), addLinkageListViewTestData());
+//        mLinkageListView.setLinkageData(new TestLeftAdapter(this), new TestRightAdapter(this), addLinkageListViewTestData());
 
         // 设置监听器
         mLinkageListView.setLinkageListener(this::onLinkageItemClick);
@@ -53,11 +51,10 @@ public class MainActivity extends Activity {
         mLinkageListView.setDefaultItem(0, 0);
 
         // 扩展样式：设置样式工具类
-        mLinkageListView.setLinkageColorUtil(getLinkageColorUtil());
+//        mLinkageListView.setLinkageColorUtil(getLinkageColorUtil());
     }
 
     private List<LinkageModel> addLinkageListViewTestData() {
-        linkageRightModelList.clear();
 
         List<LinkageModel> linkageBaseModelList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -80,7 +77,6 @@ public class MainActivity extends Activity {
                 rightLinkageModel.setLinkageModelData(youDataModel);
 
                 linkageBaseModelList.add(rightLinkageModel);
-                linkageRightModelList.add(rightLinkageModel);
             }
         }
         return linkageBaseModelList;

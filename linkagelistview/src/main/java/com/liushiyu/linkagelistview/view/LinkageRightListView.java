@@ -59,6 +59,10 @@ public class LinkageRightListView extends LinkageBaseListView {
         initScrollListener();
     }
 
+    public void stopScrollListener() {
+        setOnScrollListener(null);
+    }
+
     private void initScrollListener() {
         setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
