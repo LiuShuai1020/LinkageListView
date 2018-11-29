@@ -39,9 +39,13 @@ public class LinkageListView extends LinearLayout {
 
     private void init() {
         setOrientation(VERTICAL);
+        presenter = new LinkageListViewPresenter(getContext(), this);
     }
 
     public void setLinkageScroll(boolean scroll) {
+        if (presenter != null) {
+            presenter = null;
+        }
         if (scroll) {
             presenter = new LinkageListViewPresenter(getContext(), this);
         } else {

@@ -1,6 +1,6 @@
 # LinkageListView
 [![](https://jitpack.io/v/LiuShuai1020/LinkageListView.svg)](https://jitpack.io/#LiuShuai1020/LinkageListView)
-###### LinkageListView 是左右两侧可以上下滑动的组件。
+###### LinkageListView 是由左右两个ListView组成的一个组件，你可以点击左边的item改变右边ListView的数据，也可以直接滑动右边的数据来改变左边数据的状态，当然，你也可以禁止这个功能。同时你也可以根据需求来改变布局的样式。
 ### Add Libraries
 ###### Step 1. Add the JitPack repository to your build file
 ###### Add it in your root build.gradle at the end of repositories:
@@ -20,7 +20,7 @@
 
 
 ### Usage
-###### 备注：LinkageListView 只认识 LinkageModel 数据，所以你要讲你的数据类型转换成 LinkageListView 认识的 LinkageModel 类型。
+###### 备注：LinkageListView 只认识 LinkageModel 数据，所以你要将你的数据类型转换成 LinkageListView 认识的 LinkageModel 类型。
 
 
 ###### Step 1. 在布局文件中使用：
@@ -31,8 +31,11 @@
             android:layout_height="match_parent"/>
 
 ###### Step 2. 在Activity中创建LinkageListView对象，并使用它：
+	是否联动
+    mLinkageListView.setLinkageScroll(false);
+
 	使用默认适配器
-	setLinkageData(List<LinkageModel> modelList)
+	mLinkageListView.setLinkageData(List<LinkageModel> modelList)
 
 	设置监听器
     mLinkageListView.setLinkageListener(LinkageListViewItemClick linkageListViewListener)
@@ -52,11 +55,11 @@
 ### 重要：
 1.LinkageListView 只认识 LinkageModel 类型的数据，所以你需要创建一个：
 
- 		 private List<LinkageModel> linkageRightModelList = new ArrayList<>();
+ 	private List<LinkageModel> linkageRightModelList = new ArrayList<>();
 
 2.然后讲你的数据进行处理：
 
-		 private List<LinkageModel> addLinkageListViewTestData() {
+	private List<LinkageModel> addLinkageListViewTestData() {
         linkageRightModelList.clear();
 
         List<LinkageModel> linkageBaseModelList = new ArrayList<>();
@@ -107,23 +110,24 @@
 
 6.监听：
 
-	 mLinkageListView.setLinkageListener(this::onLinkageItemClick);
+	mLinkageListView.setLinkageListener(this::onLinkageItemClick);
 
-	 public void onLinkageItemClick(int position) {
-        Toast.makeText(getApplication(), linkageRightModelList.get(position).getItemTitle(), Toast.LENGTH_LONG).show();
-    }
+	public void onLinkageItemClick(LinkageModel linkageModel) {
 
-    或者
+        Toast.makeText(getApplication(), linkageModel.getItemTitle(), Toast.LENGTH_LONG).show();
 
-     YouDataModel youDataModel = (YouDataModel) linkageRightModelList.get(position).getLinkageModelData();
+        或者
+
+    YouDataModel youDataModel = linkageModel.getLinkageModelData();
         Toast.makeText(getApplication(), youDataModel.getUserName(), Toast.LENGTH_LONG).show();
 
+    }
 
 7.自定义布局：
 
 	mLinkageListView.setLinkageData(new TestLeftAdapter(this),new TestRightAdapter(this), addLinkageListViewTestData());
 
-自定义的adapter必须继承 kageListViewBaseAdapter<T>，如：
+自定义的adapter必须继承 LinkageListViewBaseAdapter\<T>，如：
 
 	public class TestLeftAdapter extends LinkageListViewBaseAdapter<TestLeftAdapterViewHolder> {
 
@@ -180,13 +184,13 @@
 
 其中ViewHolder为：
 
-	public class TestLeftAdapterViewHolder {
+    public class TestLeftAdapterViewHolder {
     public LinearLayout mLinearLayout;
     public TextView mTextView;
 
-    public TestLeftAdapterViewHolder(View view) {
-        mLinearLayout = view.findViewById(R.id.mLinearLayout);
-        mTextView = view.findViewById(R.id.mTextView);
-    }
+    	public TestLeftAdapterViewHolder(View view) {
+       	 mLinearLayout = view.findViewById(R.id.mLinearLayout);
+        	 mTextView = view.findViewById(R.id.mTextView);
+       }
 	}
 
