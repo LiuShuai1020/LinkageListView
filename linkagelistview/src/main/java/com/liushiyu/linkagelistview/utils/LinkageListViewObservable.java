@@ -7,7 +7,8 @@ import java.util.Observable;
  */
 public class LinkageListViewObservable extends Observable {
 
-    private LinkageListViewObservable() {}
+    private LinkageListViewObservable() {
+    }
 
     private static LinkageListViewObservable linkageListViewObservable = null;
 

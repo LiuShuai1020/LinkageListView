@@ -37,8 +37,14 @@ public class MainActivity extends Activity {
     }
 
     private void init() {
+        // 是否联动
+        mLinkageListView.setLinkageScroll(false);
+
         // 使用默认适配器
-        mLinkageListView.setLinkageData(addLinkageListViewTestData());
+//        mLinkageListView.setLinkageData(addLinkageListViewTestData());
+
+        // 扩展自定义风格：设置联动数据
+        mLinkageListView.setLinkageData(new TestLeftAdapter(this), new TestRightAdapter(this), addLinkageListViewTestData());
 
         // 设置监听器
         mLinkageListView.setLinkageListener(this::onLinkageItemClick);
@@ -47,18 +53,14 @@ public class MainActivity extends Activity {
         mLinkageListView.setDefaultItem(0, 0);
 
         // 扩展样式：设置样式工具类
-//        mLinkageListView.setLinkageColorUtil(getLinkageColorUtil());
-
-        // 扩展自定义风格：设置联动数据
-//        mLinkageListView.setLinkageData(new TestLeftAdapter(this),new TestRightAdapter(this), addLinkageListViewTestData());
+        mLinkageListView.setLinkageColorUtil(getLinkageColorUtil());
     }
 
     private List<LinkageModel> addLinkageListViewTestData() {
         linkageRightModelList.clear();
 
         List<LinkageModel> linkageBaseModelList = new ArrayList<>();
-
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
 
             LinkageModel linkageModel = new LinkageModel();
             linkageModel.setRelationship(i);
@@ -103,8 +105,8 @@ public class MainActivity extends Activity {
         return linkageColorUtil;
     }
 
-    public void onLinkageItemClick(int position) {
-        YouDataModel youDataModel = (YouDataModel) linkageRightModelList.get(position).getLinkageModelData();
+    public void onLinkageItemClick(LinkageModel linkageModel) {
+        YouDataModel youDataModel = (YouDataModel) linkageModel.getLinkageModelData();
         Toast.makeText(getApplication(), youDataModel.getUserName(), Toast.LENGTH_LONG).show();
     }
 }

@@ -7,6 +7,8 @@ import android.widget.LinearLayout;
 import com.liushiyu.linkagelistview.adapter.LinkageListViewBaseAdapter;
 import com.liushiyu.linkagelistview.listener.LinkageListViewItemClick;
 import com.liushiyu.linkagelistview.model.LinkageModel;
+import com.liushiyu.linkagelistview.presenter.LinkageListViewBasePresenter;
+import com.liushiyu.linkagelistview.presenter.LinkageListViewNoScrollPresenter;
 import com.liushiyu.linkagelistview.presenter.LinkageListViewPresenter;
 import com.liushiyu.linkagelistview.utils.LinkageColorUtil;
 
@@ -18,7 +20,7 @@ import java.util.List;
  */
 public class LinkageListView extends LinearLayout {
 
-    private LinkageListViewPresenter presenter;
+    private LinkageListViewBasePresenter presenter;
 
     public LinkageListView(Context context) {
         super(context);
@@ -37,7 +39,14 @@ public class LinkageListView extends LinearLayout {
 
     private void init() {
         setOrientation(VERTICAL);
-        presenter = new LinkageListViewPresenter(getContext(), this);
+    }
+
+    public void setLinkageScroll(boolean scroll) {
+        if (scroll) {
+            presenter = new LinkageListViewPresenter(getContext(), this);
+        } else {
+            presenter = new LinkageListViewNoScrollPresenter(getContext(), this);
+        }
     }
 
     public void setLinkageListener(LinkageListViewItemClick linkageListViewListener) {

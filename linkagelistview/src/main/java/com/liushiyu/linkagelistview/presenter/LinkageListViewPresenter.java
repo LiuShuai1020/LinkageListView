@@ -3,6 +3,7 @@ package com.liushiyu.linkagelistview.presenter;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
+
 import com.liushiyu.linkagelistview.LinkageListView;
 import com.liushiyu.linkagelistview.R;
 import com.liushiyu.linkagelistview.adapter.LinkageListViewBaseAdapter;
@@ -22,10 +23,11 @@ import static com.liushiyu.linkagelistview.model.BaseModel.*;
 /**
  * created by liushuai on 2018/11/26
  */
-public class LinkageListViewPresenter {
+public class LinkageListViewPresenter extends LinkageListViewBasePresenter {
 
     private LinkageListViewItemClick linkageListViewListener;
 
+    @Override
     public void setLinkageListener(LinkageListViewItemClick linkageListViewListener) {
         this.linkageListViewListener = linkageListViewListener;
     }
@@ -56,19 +58,23 @@ public class LinkageListViewPresenter {
 
         leftListView.setLinkageListViewListener(this::onLeftItemClick);
         rightListView.setLinkageListViewListener(this::onRightItemClick);
+
+        rightListView.startScrollListener();
     }
 
     // --------- 对外方法 begin ---------
-
+    @Override
     public void setLinkageColorUtil(LinkageColorUtil linkageColorUtil) {
         leftListView.setLinkageColorUtil(linkageColorUtil);
         rightListView.setLinkageColorUtil(linkageColorUtil);
     }
 
+    @Override
     public void setLinkageData(List<LinkageModel> modelList) {
         setLinkageData(null, null, modelList);
     }
 
+    @Override
     public void setLinkageData(LinkageListViewBaseAdapter leftBaseAdapter, LinkageListViewBaseAdapter rightBaseAdapter, List<LinkageModel> modelList) {
         this.modelList = modelList;
 
@@ -112,6 +118,7 @@ public class LinkageListViewPresenter {
         }
     }
 
+    @Override
     public void setDefaultItem(int leftIndex, int rightIndex) {
 
         if (leftIndex < 0 || leftIndex > leftModelList.size()) {
@@ -150,7 +157,7 @@ public class LinkageListViewPresenter {
     private void onRightClickLogic(int rightPosition) {
         refreshView(LINKAGE_LEFT, rightPosition);
         if (getLinkageListViewListener() != null) {
-            getLinkageListViewListener().onLinkageItemClick(rightPosition);
+            getLinkageListViewListener().onLinkageItemClick(rightModelList.get(rightPosition));
         }
     }
 

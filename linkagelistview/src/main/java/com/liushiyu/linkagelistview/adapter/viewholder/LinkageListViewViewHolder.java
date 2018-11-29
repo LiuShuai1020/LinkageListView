@@ -3,6 +3,7 @@ package com.liushiyu.linkagelistview.adapter.viewholder;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.liushiyu.linkagelistview.R;
 
 /**

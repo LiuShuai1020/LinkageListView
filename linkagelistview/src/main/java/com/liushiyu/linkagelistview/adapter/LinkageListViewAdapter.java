@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.liushiyu.linkagelistview.R;
 import com.liushiyu.linkagelistview.adapter.viewholder.LinkageListViewViewHolder;
 import com.liushiyu.linkagelistview.model.LinkageModel;

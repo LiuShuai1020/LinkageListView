@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+
 import com.liushiyu.linkagelistview.model.LinkageModel;
 import com.liushiyu.linkagelistview.utils.LinkageColorUtil;
 

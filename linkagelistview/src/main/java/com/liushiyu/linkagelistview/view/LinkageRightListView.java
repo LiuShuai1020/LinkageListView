@@ -41,7 +41,6 @@ public class LinkageRightListView extends LinkageBaseListView {
 
     private void init() {
         this.dataList = new ArrayList<>();
-        initScrollListener();
     }
 
     @Override
@@ -54,6 +53,10 @@ public class LinkageRightListView extends LinkageBaseListView {
     public void setDataList(LinkageListViewBaseAdapter baseAdapter, List<LinkageModel> dataList) {
         this.dataList = dataList;
         super.setDataList(baseAdapter, dataList);
+    }
+
+    public void startScrollListener() {
+        initScrollListener();
     }
 
     private void initScrollListener() {

@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import com.liushiyu.linkagelistview.adapter.LinkageListViewAdapter;
 import com.liushiyu.linkagelistview.adapter.LinkageListViewBaseAdapter;
 import com.liushiyu.linkagelistview.listener.LinkageListViewOnItemClickListener;
@@ -71,7 +72,7 @@ public class LinkageBaseListView extends ListView {
         if (adapter != null) {
             adapter.setLinkageColorUtil(linkageColorUtil);
             isNeedLoadLinkageColorUtil = false;
-        }else {
+        } else {
             isNeedLoadLinkageColorUtil = true;
             this.linkageColorUtil = linkageColorUtil;
         }
