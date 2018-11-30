@@ -1,6 +1,9 @@
 package com.liushiyu.linkagelistview.presenter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.constraint.ConstraintLayout;
+import android.support.constraint.ConstraintSet;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,6 +30,8 @@ public class LinkageListViewPresenter extends LinkageListViewBasePresenter {
 
     private LinkageListViewItemClick linkageListViewListener;
 
+    private ConstraintLayout mConstraintLayout;
+
     @Override
     public void setLinkageListener(LinkageListViewItemClick linkageListViewListener) {
         this.linkageListViewListener = linkageListViewListener;
@@ -51,6 +56,8 @@ public class LinkageListViewPresenter extends LinkageListViewBasePresenter {
     private void init(Context context, LinkageListView linkageListView) {
 
         View root = View.inflate(context, R.layout.view_common_linkage_listview, linkageListView);
+
+        mConstraintLayout = root.findViewById(R.id.mConstraintLayout);
 
         leftListView = root.findViewById(R.id.leftListView);
         rightListView = root.findViewById(R.id.rightListView);
@@ -131,6 +138,45 @@ public class LinkageListViewPresenter extends LinkageListViewBasePresenter {
 
         leftListView.setDefaultSelectItem(leftIndex);
         rightListView.setDefaultSelectItem(rightIndex);
+    }
+
+    @Override
+    public void setLinkageLayoutWeight(float leftWeight, float rightWeight) {
+        ConstraintSet constraintSet = new ConstraintSet();
+        constraintSet.clone(mConstraintLayout);
+        constraintSet.setHorizontalWeight(leftListView.getId(), leftWeight);
+        constraintSet.setHorizontalWeight(rightListView.getId(), rightWeight);
+        constraintSet.applyTo(mConstraintLayout);
+    }
+
+    @Override
+    public void setLinkageLeftDivider(Drawable divider) {
+        leftListView.setLinkageDivider(divider);
+    }
+
+    @Override
+    public void setLinkageLeftDividerHeight(int height) {
+        leftListView.setLinkageDividerHeight(height);
+    }
+
+    @Override
+    public void hideLinkageLeftDivider() {
+        leftListView.hideLinkageDivider();
+    }
+
+    @Override
+    public void setLinkageRightDivider(Drawable divider) {
+        rightListView.setLinkageDivider(divider);
+    }
+
+    @Override
+    public void setLinkageRightDividerHeight(int height) {
+        rightListView.setLinkageDividerHeight(height);
+    }
+
+    @Override
+    public void hideLinkageRightDivider() {
+        rightListView.hideLinkageDivider();
     }
 
     // --------- 对外方法 end ---------

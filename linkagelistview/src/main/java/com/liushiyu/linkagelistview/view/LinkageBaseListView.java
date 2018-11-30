@@ -1,6 +1,7 @@
 package com.liushiyu.linkagelistview.view;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
@@ -126,6 +127,19 @@ public class LinkageBaseListView extends ListView {
         }
         notifyDataSetChanged();
         smoothScrollToPosition(index);
+    }
+
+    public void setLinkageDivider(Drawable divider) {
+        setDivider(divider);
+    }
+
+    public void setLinkageDividerHeight(int height) {
+        setDividerHeight(height);
+    }
+
+    public void hideLinkageDivider() {
+        setDivider(null);
+        setDividerHeight(0);
     }
 
     public void notifyDataSetChanged() {

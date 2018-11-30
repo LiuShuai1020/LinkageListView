@@ -3,6 +3,8 @@ package com.linkagelistview.demo;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.linkagelistview.demo.adapter.TestLeftAdapter;
@@ -50,8 +52,12 @@ public class MainActivity extends Activity {
         // 设置默认项
         mLinkageListView.setDefaultItem(0, 0);
 
+        mLinkageListView.setLinkageLayoutWeight((float) 0.8,2);
         // 扩展样式：设置样式工具类
 //        mLinkageListView.setLinkageColorUtil(getLinkageColorUtil());
+
+        mLinkageListView.setLinkageLeftDividerHeight(0);
+        mLinkageListView.hideLinkageRightDivider();
     }
 
     private List<LinkageModel> addLinkageListViewTestData() {

@@ -1,6 +1,7 @@
 package com.liushiyu.linkagelistview;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
@@ -72,4 +73,33 @@ public class LinkageListView extends LinearLayout {
     public void setDefaultItem(int leftIndex, int rightIndex) {
         presenter.setDefaultItem(leftIndex, rightIndex);
     }
+
+    public void setLinkageLayoutWeight(float leftWeight, float rightWeight) {
+        presenter.setLinkageLayoutWeight(leftWeight, rightWeight);
+    }
+
+    public void setLinkageLeftDivider(Drawable divider) {
+        presenter.setLinkageLeftDivider(divider);
+    }
+
+    public void setLinkageLeftDividerHeight(int height) {
+        presenter.setLinkageLeftDividerHeight(height);
+    }
+
+    public void hideLinkageLeftDivider() {
+        presenter.hideLinkageLeftDivider();
+    }
+
+    public void setLinkageRightDivider(Drawable divider) {
+        presenter.setLinkageRightDivider(divider);
+    }
+
+    public void setLinkageRightDividerHeight(int height) {
+        presenter.setLinkageRightDividerHeight(height);
+    }
+
+    public void hideLinkageRightDivider() {
+        presenter.hideLinkageRightDivider();
+    }
+
 }
