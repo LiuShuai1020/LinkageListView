@@ -194,3 +194,29 @@
        }
 	}
 
+LinkageListView 方法
+
+            public void setLinkageColorUtil(LinkageColorUtil linkageColorUtil);
+
+            public void setLinkageData(List<LinkageModel> modelList);
+
+            public void setLinkageData(LinkageListViewBaseAdapter leftBaseAdapter, LinkageListViewBaseAdapter rightBaseAdapter, List<LinkageModel> modelList);
+
+            public void setDefaultItem(int leftIndex, int rightIndex);
+
+            public void setLinkageListener(LinkageListViewItemClick linkageListViewListener);
+
+            public void setLinkageLayoutWeight(float leftWeight, float rightWeight);
+
+            public void setLinkageLeftDivider(Drawable divider);
+
+            public void setLinkageLeftDividerHeight(int height);
+
+            public void hideLinkageLeftDivider();
+
+            public void setLinkageRightDivider(Drawable divider);
+
+            public void setLinkageRightDividerHeight(int height);
+
+            public void hideLinkageRightDivider();
+
