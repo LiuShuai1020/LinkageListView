@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.view.View;
-import android.widget.TextView;
 
 import com.liushiyu.linkagelistview.LinkageListView;
 import com.liushiyu.linkagelistview.R;
@@ -14,6 +13,7 @@ import com.liushiyu.linkagelistview.listener.LinkageListViewItemClick;
 import com.liushiyu.linkagelistview.model.LinkageModel;
 import com.liushiyu.linkagelistview.utils.LinkageColorUtil;
 import com.liushiyu.linkagelistview.view.LinkageLeftListView;
+import com.liushiyu.linkagelistview.view.LinkageNullDataView;
 import com.liushiyu.linkagelistview.view.LinkageRightListView;
 
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class LinkageListViewPresenter extends LinkageListViewBasePresenter {
 
     private LinkageLeftListView leftListView;
     private LinkageRightListView rightListView;
-    private TextView rightNoDataView;
+    private LinkageNullDataView rightNoDataView;
 
     private List<LinkageModel> leftModelList = new ArrayList<>();
     private List<LinkageModel> rightModelList = new ArrayList<>();
@@ -177,6 +177,11 @@ public class LinkageListViewPresenter extends LinkageListViewBasePresenter {
     @Override
     public void hideLinkageRightDivider() {
         rightListView.hideLinkageDivider();
+    }
+
+    @Override
+    public void setLinkageNullDataView(View view) {
+        rightNoDataView.setLinkageNullDataView(view);
     }
 
     // --------- 对外方法 end ---------

@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.linkagelistview.demo.adapter.TestLeftAdapter;
 import com.linkagelistview.demo.adapter.TestRightAdapter;
 import com.linkagelistview.demo.model.YouDataModel;
+import com.linkagelistview.demo.view.TestNullView;
 import com.liushiyu.linkagelistview.LinkageListView;
 import com.liushiyu.linkagelistview.model.BaseModel;
 import com.liushiyu.linkagelistview.model.LinkageModel;
@@ -52,12 +54,19 @@ public class MainActivity extends Activity {
         // 设置默认项
         mLinkageListView.setDefaultItem(0, 0);
 
+        // 设置两边 LinkageListView 的权重比
         mLinkageListView.setLinkageLayoutWeight((float) 0.8,2);
         // 扩展样式：设置样式工具类
 //        mLinkageListView.setLinkageColorUtil(getLinkageColorUtil());
 
+        // 设置左边item Divider 的高度
         mLinkageListView.setLinkageLeftDividerHeight(0);
+
+        // 隐藏右边 LinkageListView 的Divider
         mLinkageListView.hideLinkageRightDivider();
+
+        // 设置没有数据时显示的页面
+        mLinkageListView.setLinkageNullDataView(new TestNullView(getBaseContext()));
     }
 
     private List<LinkageModel> addLinkageListViewTestData() {

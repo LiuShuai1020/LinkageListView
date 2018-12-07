@@ -3,6 +3,7 @@ package com.liushiyu.linkagelistview;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.liushiyu.linkagelistview.adapter.LinkageListViewBaseAdapter;
@@ -102,4 +103,7 @@ public class LinkageListView extends LinearLayout {
         presenter.hideLinkageRightDivider();
     }
 
+    public void setLinkageNullDataView(View view) {
+        presenter.setLinkageNullDataView(view);
+    }
 }

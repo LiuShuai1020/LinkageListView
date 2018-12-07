@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.view.View;
-import android.widget.TextView;
 
 import com.liushiyu.linkagelistview.LinkageListView;
 import com.liushiyu.linkagelistview.R;
@@ -15,6 +14,7 @@ import com.liushiyu.linkagelistview.model.BaseModel;
 import com.liushiyu.linkagelistview.model.LinkageModel;
 import com.liushiyu.linkagelistview.utils.LinkageColorUtil;
 import com.liushiyu.linkagelistview.view.LinkageLeftListView;
+import com.liushiyu.linkagelistview.view.LinkageNullDataView;
 import com.liushiyu.linkagelistview.view.LinkageRightListView;
 
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class LinkageListViewNoScrollPresenter extends LinkageListViewBasePresent
 
     private ConstraintLayout mConstraintLayout;
     private int clickIndex = -1;
-    private TextView rightNoDataView;
+    private LinkageNullDataView rightNoDataView;
     private LinkageLeftListView leftListView;
     private LinkageRightListView rightListView;
 
@@ -198,6 +198,11 @@ public class LinkageListViewNoScrollPresenter extends LinkageListViewBasePresent
     @Override
     public void hideLinkageRightDivider() {
         rightListView.hideLinkageDivider();
+    }
+
+    @Override
+    public void setLinkageNullDataView(View view) {
+        rightNoDataView.setLinkageNullDataView(view);
     }
 
     private void onLeftItemClick(int position) {

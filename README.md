@@ -196,27 +196,31 @@
 
 LinkageListView 方法
 
+            // 设置样式工具类
             public void setLinkageColorUtil(LinkageColorUtil linkageColorUtil);
-
+            // 使用默认适配器
             public void setLinkageData(List<LinkageModel> modelList);
-
+            // 扩展自定义风格：设置联动数据
             public void setLinkageData(LinkageListViewBaseAdapter leftBaseAdapter, LinkageListViewBaseAdapter rightBaseAdapter, List<LinkageModel> modelList);
-
+            // 设置默认项
             public void setDefaultItem(int leftIndex, int rightIndex);
-
+            // 设置监听器
             public void setLinkageListener(LinkageListViewItemClick linkageListViewListener);
-
+            // 设置两边 LinkageListView 的权重比
             public void setLinkageLayoutWeight(float leftWeight, float rightWeight);
-
+            // 设置左边 Divider 线
             public void setLinkageLeftDivider(Drawable divider);
-
+            // 设置左边item Divider 的高度
             public void setLinkageLeftDividerHeight(int height);
-
+            // 隐藏 Left LinkageListView 的Divider
             public void hideLinkageLeftDivider();
-
+            // 设置右边 Divider 线
             public void setLinkageRightDivider(Drawable divider);
-
+            // 设置右边item Divider 的高度
             public void setLinkageRightDividerHeight(int height);
-
+            // 隐藏 Right LinkageListView 的Divider
             public void hideLinkageRightDivider();
+            // 设置没有数据时显示的View 代替"暂无数据"
+            public abstract void setLinkageNullDataView(View view);
+
 

@@ -1,6 +1,7 @@
 package com.liushiyu.linkagelistview.presenter;
 
 import android.graphics.drawable.Drawable;
+import android.view.View;
 
 import com.liushiyu.linkagelistview.adapter.LinkageListViewBaseAdapter;
 import com.liushiyu.linkagelistview.listener.LinkageListViewItemClick;
@@ -36,4 +37,6 @@ public abstract class LinkageListViewBasePresenter {
     public abstract void setLinkageRightDividerHeight(int height);
 
     public abstract void hideLinkageRightDivider();
+
+    public abstract void setLinkageNullDataView(View view);
 }
