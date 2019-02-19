@@ -58,7 +58,7 @@ public class TestRightAdapter extends LinkageListViewBaseAdapter<TestViewHolder>
     }
 
     @Override
-    public void refreshLinkageViewState(TestViewHolder viewHolder, String direction, int state, LinkageColorUtil linkageColorUtil) {
+    public void refreshLinkageViewState(int p, TestViewHolder viewHolder, String direction, int state, LinkageColorUtil linkageColorUtil) {
         switch (state) {
             case LinkageModel.TYPE_NO_CHOICE:
                 viewHolder.layout.setBackgroundColor(mContext.getResources().getColor(direction.equals(LINKAGE_LEFT) ? linkageColorUtil.getLeftBackgroundColor() : linkageColorUtil.getRightBackgroundColor()));

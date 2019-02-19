@@ -26,7 +26,7 @@ public abstract class LinkageListViewBaseAdapter<T> extends BaseAdapter {
 
     public abstract void refreshLinkageViewData(int position, View view, ViewGroup viewGroup, T viewHolder, String direction);
 
-    public abstract void refreshLinkageViewState(T viewHolder, String direction, int state, LinkageColorUtil linkageColorUtil);
+    public abstract void refreshLinkageViewState(int position, T viewHolder, String direction, int state, LinkageColorUtil linkageColorUtil);
 
     private List<LinkageModel> dataList = new ArrayList<>();
     private LinkageColorUtil linkageColorUtil;
@@ -71,7 +71,7 @@ public abstract class LinkageListViewBaseAdapter<T> extends BaseAdapter {
             viewHolder = (T) view.getTag();
         }
         refreshLinkageViewData(i, view, viewGroup, viewHolder, dataList.get(i).getLeftOrRight());
-        refreshLinkageViewState(viewHolder, dataList.get(i).getLeftOrRight(), dataList.get(i).getState(), linkageColorUtil);
+        refreshLinkageViewState(i, viewHolder, dataList.get(i).getLeftOrRight(), dataList.get(i).getState(), linkageColorUtil);
         return view;
     }
 }
