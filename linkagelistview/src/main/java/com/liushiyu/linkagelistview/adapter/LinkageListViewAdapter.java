@@ -54,7 +54,7 @@ public class LinkageListViewAdapter extends LinkageListViewBaseAdapter<LinkageLi
     }
 
     @Override
-    public void refreshLinkageViewState(LinkageListViewViewHolder viewHolder, String direction, int state, LinkageColorUtil linkageColorUtil) {
+    public void refreshLinkageViewState(int p, LinkageListViewViewHolder viewHolder, String direction, int state, LinkageColorUtil linkageColorUtil) {
         switch (state) {
             case LinkageModel.TYPE_NO_CHOICE:
                 viewHolder.linkageListViewRightItem.setBackgroundColor(mContext.getResources().getColor(direction.equals(LINKAGE_LEFT) ? linkageColorUtil.getLeftBackgroundColor() : linkageColorUtil.getRightBackgroundColor()));
