@@ -6,7 +6,6 @@ import android.widget.*;
 
 import com.liushiyu.linkagelistview.adapter.LinkageListViewBaseAdapter;
 import com.liushiyu.linkagelistview.model.LinkageModel;
-import com.liushiyu.linkagelistview.utils.LinkageListViewObservable;
 import com.liushiyu.linkagelistview.utils.LinkageScrollTimeCount;
 
 import java.util.ArrayList;
@@ -40,6 +39,7 @@ public class LinkageRightListView extends LinkageBaseListView {
     }
 
     private void init() {
+        setLinkageRightListView(this);
         this.dataList = new ArrayList<>();
     }
 
@@ -77,7 +77,9 @@ public class LinkageRightListView extends LinkageBaseListView {
                         if (dataList.size() <= index) {
                             return;
                         }
-                        LinkageListViewObservable.getInstance().scrollToIndex(dataList.get(index).getRelationship());
+                        if (getLinkageLeftListView() != null) {
+                            getLinkageLeftListView().fromLinkageRightListViewMessage(dataList.get(index).getRelationship());
+                        }
                     }
                 }
             }

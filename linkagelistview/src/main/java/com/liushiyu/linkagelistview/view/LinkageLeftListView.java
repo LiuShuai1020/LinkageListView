@@ -3,15 +3,10 @@ package com.liushiyu.linkagelistview.view;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.liushiyu.linkagelistview.utils.LinkageListViewObservable;
-import com.liushiyu.linkagelistview.utils.LinkageListViewObserver;
-
-import java.util.Observable;
-
 /**
  * created by liushuai on 2018/8/13
  */
-public class LinkageLeftListView extends LinkageBaseListView implements LinkageListViewObserver {
+public class LinkageLeftListView extends LinkageBaseListView {
 
     public LinkageLeftListView(Context context) {
         super(context);
@@ -29,13 +24,10 @@ public class LinkageLeftListView extends LinkageBaseListView implements LinkageL
     }
 
     private void init() {
-        LinkageListViewObservable.getInstance().addObserver(this);
+        setLinkageLeftListView(this);
     }
 
-    @Override
-    public void update(Observable observable, Object o) {
-        if (o instanceof Integer) {
-            setOnScrollSelectItem((int) o);
-        }
+    public void fromLinkageRightListViewMessage(int index) {
+        setOnScrollSelectItem(index);
     }
 }
