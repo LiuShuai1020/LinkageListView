@@ -63,6 +63,8 @@ public class LinkageListViewPresenter extends LinkageListViewBasePresenter {
         rightListView = root.findViewById(R.id.rightListView);
         rightNoDataView = root.findViewById(R.id.rightNoDataView);
 
+        rightListView.setLinkageLeftListView(leftListView);
+
         leftListView.setLinkageListViewListener(this::onLeftItemClick);
         rightListView.setLinkageListViewListener(this::onRightItemClick);
 

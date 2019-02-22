@@ -24,7 +24,7 @@ public class LinkageLeftListView extends LinkageBaseListView {
     }
 
     private void init() {
-        setLinkageLeftListView(this);
+
     }
 
     public void fromLinkageRightListViewMessage(int index) {

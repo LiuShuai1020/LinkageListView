@@ -23,6 +23,8 @@ public class LinkageRightListView extends LinkageBaseListView {
     private LinkageScrollTimeCount scrollTimeCount;
     private boolean isNeedRefresh = true;
 
+    private LinkageLeftListView linkageLeftListView;
+
     public LinkageRightListView(Context context) {
         super(context);
         init();
@@ -39,7 +41,6 @@ public class LinkageRightListView extends LinkageBaseListView {
     }
 
     private void init() {
-        setLinkageRightListView(this);
         this.dataList = new ArrayList<>();
     }
 
@@ -98,4 +99,13 @@ public class LinkageRightListView extends LinkageBaseListView {
             scrollTimeCount.start();
         }
     }
+
+    public LinkageLeftListView getLinkageLeftListView() {
+        return linkageLeftListView;
+    }
+
+    public void setLinkageLeftListView(LinkageLeftListView linkageLeftListView) {
+        this.linkageLeftListView = linkageLeftListView;
+    }
+
 }

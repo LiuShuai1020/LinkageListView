@@ -36,9 +36,6 @@ public class LinkageBaseListView extends ListView {
     private boolean isNeedLoadLinkageColorUtil = false;
     private LinkageColorUtil linkageColorUtil;
 
-    private LinkageLeftListView linkageLeftListView;
-    private LinkageRightListView linkageRightListView;
-
     public LinkageBaseListView(Context context) {
         super(context);
         init();
@@ -162,21 +159,5 @@ public class LinkageBaseListView extends ListView {
             dataList.get(i).setState(index == i ? TYPE_CHOICE_NO_FOCUS : TYPE_NO_CHOICE);
         }
         notifyDataSetChanged();
-    }
-
-    public LinkageLeftListView getLinkageLeftListView() {
-        return linkageLeftListView;
-    }
-
-    public void setLinkageLeftListView(LinkageLeftListView linkageLeftListView) {
-        this.linkageLeftListView = linkageLeftListView;
-    }
-
-    public LinkageRightListView getLinkageRightListView() {
-        return linkageRightListView;
-    }
-
-    public void setLinkageRightListView(LinkageRightListView linkageRightListView) {
-        this.linkageRightListView = linkageRightListView;
     }
 }
