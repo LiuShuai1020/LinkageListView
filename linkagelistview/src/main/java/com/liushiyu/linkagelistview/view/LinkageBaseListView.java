@@ -126,7 +126,7 @@ public class LinkageBaseListView extends ListView {
             setSelectItem(index);
         }
         notifyDataSetChanged();
-        smoothScrollToPosition(index);
+        setSelection(index);
     }
 
     public void setLinkageDivider(Drawable divider) {

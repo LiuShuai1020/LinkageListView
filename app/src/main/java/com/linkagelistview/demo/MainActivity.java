@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 
     private void init() {
         // 是否联动
-        mLinkageListView.setLinkageScroll(false);
+        mLinkageListView.setLinkageScroll(true);
 
         // 使用默认适配器
         mLinkageListView.setLinkageData(addLinkageListViewTestData());
@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
         mLinkageListView.setLinkageListener(this::onLinkageItemClick);
 
         // 设置默认项
-        mLinkageListView.setDefaultItem(0, 0);
+        mLinkageListView.setDefaultItem(0, 99);
 
         // 设置两边 LinkageListView 的权重比
         mLinkageListView.setLinkageLayoutWeight((float) 0.8,2);
@@ -80,7 +80,7 @@ public class MainActivity extends Activity {
             linkageModel.setLeftOrRight(BaseModel.LINKAGE_LEFT);
             linkageBaseModelList.add(linkageModel);
 
-            for (int j = 0; j < 10; j++) {
+            for (int j = 0; j < 100; j++) {
 
                 LinkageModel<YouDataModel> rightLinkageModel = new LinkageModel<>();
                 rightLinkageModel.setRelationship(i);
