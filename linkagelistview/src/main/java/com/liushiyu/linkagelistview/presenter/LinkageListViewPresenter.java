@@ -225,7 +225,7 @@ public class LinkageListViewPresenter extends LinkageListViewBasePresenter {
             }
             if (type.equals(LINKAGE_LEFT)) {
                 if (model.getLeftOrRight().equals(type)) {
-                    int relationship = modelList.get(rightPosition).getRelationship();
+                    int relationship = rightModelList.get(rightPosition).getRelationship();
                     if (modelList.get(i).getRelationship() == relationship) {
                         modelList.get(i).setState(TYPE_CHOICE_NO_FOCUS);
                     } else {
