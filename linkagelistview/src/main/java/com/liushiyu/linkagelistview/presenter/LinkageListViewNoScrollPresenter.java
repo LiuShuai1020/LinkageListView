@@ -207,6 +207,13 @@ public class LinkageListViewNoScrollPresenter extends LinkageListViewBasePresent
         rightNoDataView.setLinkageNullDataView(view);
     }
 
+    @Override
+    public void showLinkageNullDataView() {
+        leftListView.setVisibility(GONE);
+        rightListView.setVisibility(GONE);
+        rightNoDataView.setVisibility(VISIBLE);
+    }
+
     private void onLeftItemClick(int position) {
         onLeftItemClickLogin(position);
     }

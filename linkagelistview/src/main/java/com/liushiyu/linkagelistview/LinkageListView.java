@@ -106,4 +106,8 @@ public class LinkageListView extends LinearLayout {
     public void setLinkageNullDataView(View view) {
         presenter.setLinkageNullDataView(view);
     }
+
+    public void showLinkageNullDataView() {
+        presenter.showLinkageNullDataView();
+    }
 }

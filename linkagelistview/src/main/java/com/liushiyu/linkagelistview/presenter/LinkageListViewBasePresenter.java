@@ -39,4 +39,6 @@ public abstract class LinkageListViewBasePresenter {
     public abstract void hideLinkageRightDivider();
 
     public abstract void setLinkageNullDataView(View view);
+
+    public abstract void showLinkageNullDataView();
 }
