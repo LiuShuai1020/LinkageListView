@@ -96,16 +96,15 @@ public class LinkageBaseListView extends ListView {
     public void setDataList(LinkageListViewBaseAdapter baseAdapter, List<LinkageModel> dataList) {
         this.dataList = dataList;
 
-        if (adapter == null) {
-            if (baseAdapter == null) {
-                adapter = new LinkageListViewAdapter(mContext);
-            } else {
-                adapter = baseAdapter;
-            }
+        if (baseAdapter == null) {
+            adapter = new LinkageListViewAdapter(mContext);
+        } else {
+            adapter = baseAdapter;
         }
+
         adapter.setDataList(dataList);
         setAdapter(adapter);
-
+        adapter.notifyDataSetChanged();
         if (isNeedLoadLinkageColorUtil) {
             adapter.setLinkageColorUtil(linkageColorUtil);
         }
