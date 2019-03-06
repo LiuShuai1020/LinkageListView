@@ -94,9 +94,6 @@ public class LinkageBaseListView extends ListView {
     }
 
     public void setDataList(LinkageListViewBaseAdapter baseAdapter, List<LinkageModel> dataList) {
-        if (dataList.size() == 0) {
-            return;
-        }
         this.dataList = dataList;
 
         if (adapter == null) {
