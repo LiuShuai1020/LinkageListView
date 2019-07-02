@@ -2,6 +2,7 @@ package com.liushiyu.linkagelistview.presenter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.view.View;
@@ -23,8 +24,10 @@ import java.util.List;
 import static android.view.View.GONE;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
+import static com.liushiyu.linkagelistview.model.BaseModel.LEFT_CHOICE_INDEX;
 import static com.liushiyu.linkagelistview.model.BaseModel.LINKAGE_LEFT;
 import static com.liushiyu.linkagelistview.model.BaseModel.LINKAGE_RIGHT;
+import static com.liushiyu.linkagelistview.model.BaseModel.RIGHT_CHOICE_INDEX;
 
 /**
  * created by liushuai on 2018/11/29
@@ -41,6 +44,9 @@ public class LinkageListViewNoScrollPresenter extends LinkageListViewBasePresent
     private List<LinkageModel> linkageDataModelList = new ArrayList<>();
 
     private LinkageListViewBaseAdapter rightBaseAdapter;
+
+    private int defaultIndexLeft = 0;
+    private int defaultIndexRight = 0;
 
     public LinkageListViewNoScrollPresenter(Context context, LinkageListView linkageListView) {
         init(context, linkageListView);
@@ -129,6 +135,9 @@ public class LinkageListViewNoScrollPresenter extends LinkageListViewBasePresent
             return;
         }
 
+        defaultIndexLeft = leftIndex;
+        defaultIndexRight = rightIndex;
+
         if (linkageDataModelList.size() == 0) {
             leftListView.setVisibility(GONE);
             rightListView.setVisibility(INVISIBLE);
@@ -214,6 +223,18 @@ public class LinkageListViewNoScrollPresenter extends LinkageListViewBasePresent
         rightNoDataView.setVisibility(VISIBLE);
     }
 
+    @Override
+    public Bundle getChoiceIndex() {
+        return getChoiceBundle(defaultIndexLeft, defaultIndexRight);
+    }
+
+    private Bundle getChoiceBundle(int left, int right) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(LEFT_CHOICE_INDEX, left);
+        bundle.putInt(RIGHT_CHOICE_INDEX, right);
+        return bundle;
+    }
+
     private void onLeftItemClick(int position) {
         onLeftItemClickLogin(position);
     }
@@ -257,6 +278,10 @@ public class LinkageListViewNoScrollPresenter extends LinkageListViewBasePresent
     }
 
     private void onRightClickLogic(int leftPosition, int rightPosition) {
+
+        defaultIndexLeft = leftPosition;
+        defaultIndexRight = rightPosition;
+
         for (int i = 0; i < linkageDataModelList.size(); i++) {
 
             if (linkageDataModelList.get(i).getState() == BaseModel.TYPE_CHOICE_FOCUS) {

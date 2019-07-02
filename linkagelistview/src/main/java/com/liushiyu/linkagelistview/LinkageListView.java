@@ -16,6 +16,9 @@ import com.liushiyu.linkagelistview.utils.LinkageColorUtil;
 
 import java.util.List;
 
+import static com.liushiyu.linkagelistview.model.BaseModel.LEFT_CHOICE_INDEX;
+import static com.liushiyu.linkagelistview.model.BaseModel.RIGHT_CHOICE_INDEX;
+
 /**
  * 左右联动ListView
  * created by liushuai on 2018/8/13
@@ -109,5 +112,13 @@ public class LinkageListView extends LinearLayout {
 
     public void showLinkageNullDataView() {
         presenter.showLinkageNullDataView();
+    }
+
+    public int getScrollChoiceLeftIndex() {
+        return presenter.getChoiceIndex().getInt(LEFT_CHOICE_INDEX);
+    }
+
+    public int getScrollChoiceRightIndex() {
+        return presenter.getChoiceIndex().getInt(RIGHT_CHOICE_INDEX);
     }
 }

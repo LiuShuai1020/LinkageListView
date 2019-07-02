@@ -2,6 +2,7 @@ package com.liushiyu.linkagelistview.presenter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.view.View;
@@ -48,6 +49,10 @@ public class LinkageListViewPresenter extends LinkageListViewBasePresenter {
     private List<LinkageModel> leftModelList = new ArrayList<>();
     private List<LinkageModel> rightModelList = new ArrayList<>();
     private List<LinkageModel> modelList = new ArrayList<>();
+
+    private int rightChoiceIndex = -1;
+    private int defaultIndexLeft = 0;
+    private int defaultIndexRight = 0;
 
     public LinkageListViewPresenter(Context context, LinkageListView linkageListView) {
         init(context, linkageListView);
@@ -138,6 +143,9 @@ public class LinkageListViewPresenter extends LinkageListViewBasePresenter {
             throw new IllegalStateException("LinkageListView -> setDefaultItem -> rightIndex invalid!");
         }
 
+        defaultIndexLeft = leftIndex;
+        defaultIndexRight = rightIndex;
+
         leftListView.setDefaultSelectItem(leftIndex);
         rightListView.setDefaultSelectItem(rightIndex);
     }
@@ -193,6 +201,39 @@ public class LinkageListViewPresenter extends LinkageListViewBasePresenter {
         rightNoDataView.setVisibility(VISIBLE);
     }
 
+    @Override
+    public Bundle getChoiceIndex() {
+
+        int leftIndex = 0;
+        int rightIndex = 0;
+
+        if (rightChoiceIndex == -1) {
+            leftIndex = defaultIndexLeft;
+            rightIndex = defaultIndexRight;
+        } else {
+            int relationship = rightModelList.get(rightChoiceIndex).getRelationship();
+
+            for (int i = 0; i < leftModelList.size(); i++) {
+                LinkageModel model = leftModelList.get(i);
+                if (model.getLeftOrRight().equals(LINKAGE_LEFT)) {
+                    if (model.getRelationship() == relationship) {
+                        leftIndex = i;
+                        rightIndex = rightChoiceIndex;
+                        break;
+                    }
+                }
+            }
+        }
+        return getChoiceBundle(leftIndex, rightIndex);
+    }
+
+    private Bundle getChoiceBundle(int left, int right) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(LEFT_CHOICE_INDEX, left);
+        bundle.putInt(RIGHT_CHOICE_INDEX, right);
+        return bundle;
+    }
+
     // --------- 对外方法 end ---------
 
     private void onLeftItemClick(int position) {
@@ -215,6 +256,7 @@ public class LinkageListViewPresenter extends LinkageListViewBasePresenter {
     }
 
     private void onRightClickLogic(int rightPosition) {
+        rightChoiceIndex = rightPosition;
         refreshView(LINKAGE_LEFT, rightPosition);
         if (getLinkageListViewListener() != null) {
             getLinkageListViewListener().onLinkageItemClick(rightModelList.get(rightPosition));

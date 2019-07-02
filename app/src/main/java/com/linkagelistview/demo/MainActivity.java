@@ -22,6 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * created by liushuai on 2018/11/22
@@ -55,7 +56,7 @@ public class MainActivity extends Activity {
         mLinkageListView.setDefaultItem(0, 99);
 
         // 设置两边 LinkageListView 的权重比
-        mLinkageListView.setLinkageLayoutWeight((float) 0.8,2);
+        mLinkageListView.setLinkageLayoutWeight((float) 0.8, 2);
         // 扩展样式：设置样式工具类
 //        mLinkageListView.setLinkageColorUtil(getLinkageColorUtil());
 
@@ -95,6 +96,11 @@ public class MainActivity extends Activity {
             }
         }
         return linkageBaseModelList;
+    }
+
+    @OnClick(R.id.defaultImage)
+    void defaultImageClick() {
+        Toast.makeText(getApplicationContext(), "当前选中的是：左边第" + mLinkageListView.getScrollChoiceLeftIndex() + "项，右边第" + mLinkageListView.getScrollChoiceRightIndex() + "项", Toast.LENGTH_SHORT).show();
     }
 
     private LinkageColorUtil getLinkageColorUtil() {

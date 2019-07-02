@@ -1,6 +1,7 @@
 package com.liushiyu.linkagelistview.presenter;
 
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.View;
 
 import com.liushiyu.linkagelistview.adapter.LinkageListViewBaseAdapter;
@@ -41,4 +42,6 @@ public abstract class LinkageListViewBasePresenter {
     public abstract void setLinkageNullDataView(View view);
 
     public abstract void showLinkageNullDataView();
+
+    public abstract Bundle getChoiceIndex();
 }

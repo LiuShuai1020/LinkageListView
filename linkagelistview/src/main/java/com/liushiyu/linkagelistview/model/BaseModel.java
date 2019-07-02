@@ -12,6 +12,9 @@ public class BaseModel {
     public static final int TYPE_CHOICE_FOCUS = 1;//红色背景+白色文字
     public static final int TYPE_CHOICE_NO_FOCUS = 2;//白色背景+红色文字
 
+    public static final String LEFT_CHOICE_INDEX = "left_choice_index";
+    public static final String RIGHT_CHOICE_INDEX = "right_choice_index";
+
     private int id;
     private int state;
     private int relationship;
