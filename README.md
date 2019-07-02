@@ -223,8 +223,8 @@ LinkageListView 方法
             // 设置没有数据时显示的View 代替"暂无数据"
             public abstract void setLinkageNullDataView(View view);
             // 获取左边选中的下标
-            public int getScrollChoiceLeftIndex() {}
+            public int getChoiceLeftIndex() {}
             // 获取右边选中的下标
-            public int getScrollChoiceRightIndex() {}
+            public int getChoiceRightIndex() {}
 
 
