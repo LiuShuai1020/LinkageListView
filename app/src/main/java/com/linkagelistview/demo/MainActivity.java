@@ -100,7 +100,7 @@ public class MainActivity extends Activity {
 
     @OnClick(R.id.defaultImage)
     void defaultImageClick() {
-        Toast.makeText(getApplicationContext(), "当前选中的是：左边第" + mLinkageListView.getScrollChoiceLeftIndex() + "项，右边第" + mLinkageListView.getScrollChoiceRightIndex() + "项", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "当前选中的是：左边第" + mLinkageListView.getChoiceLeftIndex() + "项，右边第" + mLinkageListView.getChoiceRightIndex() + "项", Toast.LENGTH_SHORT).show();
     }
 
     private LinkageColorUtil getLinkageColorUtil() {

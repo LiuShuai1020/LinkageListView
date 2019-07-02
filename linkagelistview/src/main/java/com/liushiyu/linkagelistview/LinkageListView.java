@@ -114,11 +114,11 @@ public class LinkageListView extends LinearLayout {
         presenter.showLinkageNullDataView();
     }
 
-    public int getScrollChoiceLeftIndex() {
+    public int getChoiceLeftIndex() {
         return presenter.getChoiceIndex().getInt(LEFT_CHOICE_INDEX);
     }
 
-    public int getScrollChoiceRightIndex() {
+    public int getChoiceRightIndex() {
         return presenter.getChoiceIndex().getInt(RIGHT_CHOICE_INDEX);
     }
 }
